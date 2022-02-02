@@ -2,7 +2,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: linear-gradient(to right, white, whitesmoke)
+    /* background: linear-gradient(to right, white, whitesmoke); */
+    height:100vh;
+    /* position:static */
+    /* width: 375px; */
 }
 
 .card {
@@ -11,18 +14,18 @@ body {
 }
 
 .box {
-    width: 500px;
+    width: inherit;
     padding: 40px;
-    position:absolute; 
+    position:absolute;
     top: 50%;
     left: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     transition: 0.25s;
-    margin-top: 100px;
+    margin-top: 15vh;
     box-shadow: 0 0 10px #000;
     border-radius: 5px;
-    /* display: block; */
+    display: block;
 }
 
 .box input[type="text"],
@@ -34,7 +37,7 @@ body {
     text-align: center;
     border: 2px solid #3498db;
     padding: 10px 10px;
-    width: 250px;
+    width: 75%;
     outline: none;
     border-radius: 24px;
     transition: 0.25s
@@ -48,7 +51,7 @@ body {
 
 .box input[type="text"]:focus,
 .box input[type="password"]:focus {
-    width: 300px;
+    width: 85%;
 
     border-color: #2ecc71;
 }
@@ -141,9 +144,10 @@ a.socialIcon:hover,
     transition: all 0.8s
 }
 body{
-  height: 650px;
-  background-image: url('../../assets/img/slosh.jpg') ;
+  /* height:700px; */
+  background-image: url('../../assets/img/5.png') ;
   background-size: cover;
+  /* width: 100%; */
 }
 p
 {

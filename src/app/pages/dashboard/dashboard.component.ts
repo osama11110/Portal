@@ -1,11 +1,10 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { PackageService } from 'package.service';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import swal from 'sweetalert2';
 
-import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
     selector: 'dashboard-cmp',
