@@ -3,12 +3,8 @@ const path = require('path');
 const multer = require('multer');
 const multerS3 = require('multer-s3')
 const fs = require('fs');
-// var CloudmersiveVirusApiClient = require('cloudmersive-virus-api-client');
 const request = require('request-promise');
-
-
-
-
+const compression = require('compression');
 
 const async = require("async");
 const _ =require("underscore");
@@ -27,8 +23,13 @@ const s3 = new AWS.S3();
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(compression());
+app.disable('x-powered-by');
+app.use(express.static(__dirname + '/dist/'));
+app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 app.use(cors());
+app.use(bodyParser.json());
+
 
 
 
@@ -131,42 +132,6 @@ router.post('/api/postpatientdata', (req, res) =>{
 });
 
 
-
-
-
-
-
-
-
-
-    // const data = new UserProfile({
-    //     username: req.body.username,
-    //     userage: req.body.userage,
-    //     useraddress: req.body.useraddress,
-    //     usernumber: req.body.usernumber,
-    //     usergender: req.body.usergender,
-    //     userresult: req.body.userresult,
-    //     usersymptom: req.body.usersymptom,
-    // });
-    // data.save()
-    //     .then(result => {
-    //         res.status(200).send({
-    //             username: result.username,
-    //             userage: result.userage,
-    //             useraddress: result.useraddress,
-    //             usernumber: result.usernumber,
-    //             usergender: result.usergender,
-    //             userresult: result.userresult,
-    //             usersymptom: result.usersymptom,
-    //         })
-    //     })
-    //     .catch(err => {
-    //         res.send({ message: err })
-    //   })
-// });
-
-
-
 app.use(router);
 
 const port = 3000;
@@ -179,17 +144,6 @@ server.listen(port, address, () => {
 });
 
 
-
-
-
-
-// const fileFilter = (req, file, cb) => {
-//     if (file.mimetype === "image/png" ) {
-//       cb(null, true);
-//     } else {
-//       cb(new Error("Invalid file type, dcm is allowed!"), false);
-//     }
-//   };
   
   const upload = multer({
     // fileFilter,
@@ -220,7 +174,7 @@ server.listen(port, address, () => {
         method: 'POST',
   
         // http:flaskserverurl:port/route
-        uri: 'http://127.0.0.1:5000/checkpic',
+        uri: 'http://172.31.47.15:5000/checkpic',
         body: uploaded,
   
         // Automatically stringifies
@@ -261,7 +215,7 @@ server.listen(port, address, () => {
 
       
      
-    //   console.log(uploaded);
+    
         }
   
   }); 
@@ -274,4 +228,3 @@ server.listen(port, address, () => {
 
 
 
-//   module.exports = upload;

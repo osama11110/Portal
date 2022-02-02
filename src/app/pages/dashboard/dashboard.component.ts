@@ -58,7 +58,7 @@ export class DashboardComponent  {
   onSubmit(f: NgForm) {
     // console.log(f.value);  // { first: '', last: '' }
     this.packageService.addToTask(f.value);
-    this.http.post('http://localhost:3000/api/postpatientdata', f.value ).subscribe(res=> {
+    this.http.post('http://172.31.47.15:3000/api/postpatientdata', f.value ).subscribe(res=> {
       console.log(res);
       if(res)
       {
@@ -80,7 +80,7 @@ export class DashboardComponent  {
 
     const formData = new FormData();
     formData.append("file", this.fileUpload, this.fileUpload.name)
-    this.http.post('http://localhost:3000/uploadfile', formData)
+    this.http.post('http://172.31.47.15:3000/uploadfile', formData)
     .subscribe(responseData => {
       if(responseData)
       {

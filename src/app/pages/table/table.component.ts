@@ -74,7 +74,7 @@ export class TableComponent implements OnInit{
 
       getItemData()
       {
-        this.http.get('http://localhost:3000/api/getpatientdata').subscribe(res=>{      
+        this.http.get('http://172.31.47.15:3000/api/getpatientdata').subscribe(res=>{      
            if(res)
            {
             this.tableUploading = false;
