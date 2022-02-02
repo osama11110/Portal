@@ -25,7 +25,7 @@ const app = express();
 
 app.use(compression());
 app.disable('x-powered-by');
-app.use(express.static(__dirname + '/dist/'));
+app.use(express.static(__dirname + '/dist'));
 app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 app.use(cors());
 app.use(bodyParser.json());
