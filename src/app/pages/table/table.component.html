@@ -1,0 +1,106 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-plain">
+      <div class="card-header">
+        <h4 class="card-title"> Patient List</h4>
+        <p class="card-category"> List of all the Patients</p>
+      </div>
+      <br>
+      <div class="spinner-border text-primary" role="status" *ngIf= "tableUploading">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Name
+              </th>
+              <th>
+                Age
+              </th>
+              <th>
+                Gender
+              </th>
+              <th >
+                Address
+              </th>
+              <th >
+                Symptom
+              </th>
+              <th >
+                Number
+              </th>
+              <th >
+                Results
+              </th>
+              <th >
+                View
+              </th>
+
+            </thead>
+            <tbody *ngFor="let item of items">
+              <tr > 
+                <td>
+                  {{item.username}}
+                </td>
+                <td>
+                  {{item.userage}}
+                </td>
+                <td>
+                  {{item.usergender}}
+                </td>
+                <td >
+                  {{item.useraddress}} 
+                </td>
+                <td >
+                  {{item.usersymptom}} 
+                </td>
+                <td >
+                  {{item.usernumber}} 
+                </td>
+                <td >
+                  {{item.userresult}} 
+                </td>
+                <td   >
+                  <a class="icoView" title="View Image"><i class="fa fa-eye" (click)="triggerModal(modalData)"></i></a>
+                  <!-- <a class="icoView" title="View Image"><i class="fa fa-eye" (click)="display(item.userdicom)"></i></a> -->
+                  <!-- <img src= {{item.userdicom}}> -->
+                  <!-- <div ngModel #viewer id=viewer></div> -->
+                  
+                  <ng-template #modalData let-modal> 
+                    <div class="modal-header"> 
+                      <h4 class="modal-title" id="modal-basic-title">{{item.username}}</h4>
+                      <button type="button"  class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card-body">
+                        <img src= {{item.userdicom}} >
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modal.dismiss('Cross click')">Close</button>
+                        </div>
+                      </div>
+                  </ng-template>
+
+
+
+
+
+
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div style="display: flex;height: calc(100% - 90px); width:100%;">
+    <dicom-viewer [enableViewerTools]="true" [enablePlayTools]="true" [maxImagesToLoad]="20" style="height:100%; width:100%; margin: 10px;"></dicom-viewer>
+  </div> -->
+</div>

@@ -1,0 +1,30 @@
+<body>
+    <!-- <img src="../../assets/img/slosh.jpg" alt="Responsive image" class="img-fluid"> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6"> 
+                <div class="card">
+                    <!-- <div class="box">  -->
+                        <form onsubmit="event.preventDefault()" class="box">
+                            <h1>Login</h1>
+                            <p> Please enter your login and password!</p> <input type="text" name="username" [(ngModel)] = "userName"
+                                placeholder="Username"> <input type="password" name="password" placeholder="Password" [(ngModel)]="userPassword"> <a
+                                href="#">Forgot password?</a> <input type="submit" name="" value="Login"
+                                (click)="verifyUser()">
+                            <div class="col-md-12">
+                                <ul class="social-network social-circle">
+                                    <li><a href="https://www.facebook.com/SloshAIsolutions/" class="icoFacebook" title="Facebook"><i
+                                                class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/slosh-ai-solutions/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                    <li><a href="https://www.instagram.com/slosh.solutions/?hl=en" class="icoInstagram" title="Instagram"><i
+                                                class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    <!-- </div> -->
+                </div>
+            </div>
+         </div>
+    </div> 
+</body>

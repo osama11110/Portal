@@ -1,0 +1,99 @@
+<h1 class="display-4">Welcome</h1>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <button class="btn btn-info" (click)="triggerModal(modalData)">Add Your Information</button>
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">User Information</h4>
+    <button type="button"  class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f); modal.close('Save click')" novalidate >
+        <div class="row">
+          <div class="col-md-12 pl-1">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder=" Name"  name="username" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 px-1">
+            <div class="form-group">
+              <label>Age</label>
+              <input type="text" class="form-control" placeholder="Age" name="userage" ngModel>
+            </div>
+          </div>
+          
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>Gender</label>
+              <input type="text" class="form-control" placeholder="Gender" name="usergender" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" class="form-control" placeholder="Home Address" name="useraddress" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group w-75">
+              <label>Symptoms</label>
+              <input type="text" class="form-control" placeholder="Symptom"  name="usersymptom" ngModel>
+            </div>
+          </div>
+          <div class="col-md-12 px-1">
+            <div class="form-group w-75">
+              <label>Phone Number</label>
+              <input type="text" class="form-control" placeholder="Number"  name="usernumber" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>CNIC(without dashes)</label>
+              <input  class="form-control" placeholder="CNIC" name="usercnic" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 px-1">
+          <label for="formFile" class="form-label">Upload Image</label>
+          <input class="form-control" type="file" id="formFile" accept=".png"  (change) = "handleFileInput($event.target.files)">
+        </div>
+        <div class="spinner-border text-primary" role="status" *ngIf= "fileUploading">
+          <span class="visually-hidden"></span>
+        </div>
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round"  [disabled]= "fileUploading">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+ 
