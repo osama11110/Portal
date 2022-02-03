@@ -174,7 +174,7 @@ server.listen(port, address, () => {
         method: 'POST',
   
         // http:flaskserverurl:port/route
-        uri: 'http://172.31.47.15:5000/checkpic',
+        uri: 'http://172.31.39.154:5000/checkpic',
         body: uploaded,
   
         // Automatically stringifies

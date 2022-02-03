@@ -38,15 +38,7 @@ export class TableComponent implements OnInit{
     image: any;
     closeModal: string;
     tableUploading: boolean =true;
-    // constructor(
-    //     private packageService: PackageService, )
-    //    {
-    //    this.items = this.packageService.getItem();
-    //     }
-    
-    //   ngOnInit(): void{
-    //   }
-
+  
 
 
 
@@ -60,27 +52,18 @@ export class TableComponent implements OnInit{
 
       ngOnInit(): void{
         this.getItemData();
-    //    cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
-    //    cornerstoneWADOImageLoader.webWorkerManager.initialize({
-    //     webWorkerPath: '../../../assets/cornerstone/webworkers/cornerstoneWADOImageLoaderWebWorker.js',
-    //     taskConfiguration: {
-    //         'decodeTask': {
-    //             codecsPath: '../../../assets/cornerstone/codecs/cornerstoneWADOImageLoaderCodecs.js'
-    //         }
-    //     }
-    // });
 
       }
 
       getItemData()
       {
-        this.http.get('http://172.31.47.15:3000/api/getpatientdata').subscribe(res=>{      
+        this.http.get('http://172.31.39.154:3000/api/getpatientdata').subscribe(res=>{      
            if(res)
            {
             this.tableUploading = false;
            }
            this.items=res;
-          // console.log(this.items);
+      
           
         })
       }
@@ -89,32 +72,6 @@ export class TableComponent implements OnInit{
         this.image= image;
         console.log(this.image);
       }
-
-
-      // loadDICOMImages(files: FileList) {
-      //   if (files && files.length > 0) {
-      //     let imageList = [];
-      //     const fileList:Array<File> = Array.from(files);
-      //     fileList.sort((a,b) => {
-      //       if ( a.name > b.name ) return 1;
-      //       if ( b.name > a.name ) return -1;
-      //       return 0;
-      //     })
-      //     cornerstoneWADOImageLoader.wadouri.fileManager.purge();
-      //     cornerstoneWADOImageLoader.wadouri.dataSetCacheManager.purge();
-    
-      //     for (let i = 0; i < fileList.length; i++) {
-      //       const dicomFile: File = fileList[i];
-      //       const imageId = cornerstoneWADOImageLoader.wadouri.fileManager.add(dicomFile);
-      //       imageList.push(imageId);
-      //     }
-    
-      //     this.viewPort.resetAllTools();
-    
-      //     this.viewPort.loadStudyImages(imageList);
-    
-      //   } else alert('Escolha imagens DICOM a exibir.');
-      // }
 
 
 
